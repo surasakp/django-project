@@ -1,5 +1,9 @@
 version: '3'
+
 services:
+  db:
+    image: postgres
+  
   web:
     build:
       context: ../
@@ -9,3 +13,5 @@ services:
       - ../django_tutorial:/app
     ports:
       - '8000:8000'
+    depends_on:
+      - db
